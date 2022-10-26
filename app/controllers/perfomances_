@@ -1,0 +1,30 @@
+class PerformancesController < ApplicationController
+    get "/Performances" do
+        Performances = Performance.all
+        Performances.to_json
+    end
+
+    get "/Performances/:id" do
+        Performance = Performance.find(params[:id])
+        Performance.to_json
+    end
+
+    post "/Performances" do
+        Performance = Performance.create(params)
+        Performance.to_json
+    end
+
+    patch "/Performances/:id" do
+        Performance = Performance.find(params[:id])
+        
+        # need to finish update
+        Performance.update()
+        Performances.to_json
+    end
+
+    delete "/Performances/:id" do
+        Performance = Performance.find(params[:id])
+        Performance.destroy
+    end
+
+end
