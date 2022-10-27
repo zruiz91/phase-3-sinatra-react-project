@@ -1,30 +1,29 @@
 class PerformancesController < ApplicationController
     get "/performances" do
-        Performances = Performance.all
-        Performances.to_json
+        performances = Performance.all
+        performances.to_json
     end
 
     get "/performances/:id" do
-        Performance = Performance.find(params[:id])
-        Performance.to_json
+        performance = Performance.find(params[:id])
+        performance.to_json
     end
 
     post "/performances" do
-        Performance = Performance.create(params)
-        Performance.to_json
+        performance = Performance.create(title: params[:title], streamer_id: params[:streamer_id], game_id: params[:game_id])
+        performance.to_json
     end
 
     patch "/performances/:id" do
-        Performance = Performance.find(params[:id])
+        performance = Performance.find(params[:id])
         
-        # need to finish update
-        Performance.update()
-        Performances.to_json
+        performance.update()
+        performance.to_json
     end
 
     delete "/performances/:id" do
-        Performance = Performance.find(params[:id])
-        Performance.destroy
+        performance = Performance.find(params[:id])
+        performance.destroy
     end
 
 end
