@@ -10,7 +10,7 @@ class PerformancesController < ApplicationController
     end
 
     post "/performances" do
-        performance = Performance.create(title: params[:title], streamer_id: params[:streamer_id], game_id: params[:game_id])
+        performance = Performance.create(title: params[:title], streamer_id: params[:streamer_id], game_id: params[:game_id], streamer_name: params[:streamer_name])
         performance.to_json
     end
 
